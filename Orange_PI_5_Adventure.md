@@ -38,7 +38,7 @@ ls -l /dev/sd* или ls -l /dev/mmcblk*
 ```
 далее переходим к прошивки
 ```
-dd if=my_super_image.img of=/dev/sda bs=4M conv=fsync status=progress
+dd if=my_super_image.img of=/dev/sda bs=4M oflag=fsync status=progress
 ```
 ждем, и после завершения обязательно запускаем команду sync перед извлечением карты
 ```
