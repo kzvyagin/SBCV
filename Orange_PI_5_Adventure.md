@@ -51,11 +51,19 @@ sync
 Плата пришла в обещанное время, спасибо сервису BoxBerry. Упакована надежно и добротно в две коробки. 
 Придя домой я подключил монитор, клавиатуру и питание.  Однако меня ждало разочарование. На мониторе загрузка зависла... Далее была борьба с разными образами ОС и вариантами прошивки. Часа три я не понимал, или плата нерабочая, или я не тот образ записал (или не так). 
 Я получал ошибки следующего вида:
- 
+ <details close>
+  <summary>Ошибка 1</summary>
+
 ![ubuntu load error 1](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/ubuntu_error.png)  
 
- ![armbian load error 1](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/armbian_error.png)  
+</details>
 
+
+ <details close>
+  <summary>Ошибка 2</summary>
+
+ ![armbian load error 1](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/armbian_error.png)  
+</details>
 
 Все без результатно. 
 Я начал исследовать тему, почему это происходит и нашел два наиболее распространенных ответа:
@@ -95,7 +103,7 @@ sync
 
 Итого плата отлично запускается, все работает. 
 насал использовать OS OrangePI5_ubuntu_jammy_desctop_xfce_linux_5.10.160.7z
-но перешел на ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5.img.xz v1.31
+но перешел на ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5.img.xz v1.31, он по новее и браузер более новый, меньше падений, хотя есть.
 
 <h4>Часть 2. "Подготовка инструментов"</h4>
 
@@ -165,18 +173,55 @@ rknpu2/runtime/RK3588/Linux/librknn_api/aarch64
 
 тут век ок, битых ссылок нет.
 
-<h5>3) установка vscode <h/5>
+<h5>3) установка vscode </h5>
 установка vs code прошла без особых проблем. заходим на официальный сайт, скачиваем сборку aarch64 и устанавливаем ее через dpkg -i или aptitude install.
 
 <h5> 4)установка инструментов </h5>
 ```
-apt-get install cmake clang gcc g++ gdb git docker mc
+apt-get install cmake clang gcc g++ gdb git docker mc meld
 ``` 
 
 <h4>Часть 3. "Сборка и запуск примеров rknn2"</h4>
+ Перейдем к самому интересному, к сборке и запуску готового примера использования NPU ускорителя. 
+Если вы еще не скачали rknn репозиорий то повторим это 
+```
+git clone --recurse-submodules -j8 https://github.com/rockchip-linux/rknpu2.git
+```
+Далее все достаточно просто, заходим внутрь папки rknpu2/examples/
+Нас интересует пример rknn_yolov5_demo.
+заходим внутри и там есть заранее заготовленный скрипт сборки build-linux_RK3588.sh, запускаем его.
+
+<details close>
+  <summary>Лог сборки</summary>
+
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/rknn_yollo5_demo_build_progress.png)  
+</details>
 
 
+Отлично, пример собрался без дополнительной магии и докручивания. 
+Перейдем к запуску. 
+Из текущей директории переходи в новую папку install/rknn_yolov5_demo_Linux и там будет исполняемый файл, модель , и ,библиотека для NPU.
+Все предусмотрительно скопировано скриптом в одну папку, это удобно.
+<details close>
+  <summary>Лог зпуска</summary>
+
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/run_rknn_yollo5_demo.png)  
+</details>
+
+Следует отметить что скрип копирует библиотеку librknnrt.so в папку lib. И если спросить ldd у rknn_yolov5_demo то ссылка будет корректно указвать на lib/librknnrt.so.  
+
+Ниже приведу результат обработки изображения.
+
+<details close>
+  <summary>Результат распознования автобуса</summary>
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/out_bus.png)  
+</details>
+
+Ура! пример запускается. Время на обработку 1 ого изображения 640x640 при помощи inference yollo5 запущенного на NPU RK3588 примерно 20 милисекунд. Немного округлим в большую сторону и получи 21 милисекунд. Посчитаем общее количество кадров которое может обработать NPU c имеющимся inference yollo5. 
+1000/21 = 47.6 кадров/сек без учета подготовки, копирования, прочих накладных расходов. Выглядит очень интересно при таком большом разрешении inference yollo5 640х640. Есть гипотеза что можно организовать потоковую обработку видео 24 кадра в секунду. Проверим это предположение в слудующих разделах нашего приключения. 
 
 <h4>Часть 4. "Сборка и запуск примера Neural Network Use Cases"</h4>
 
 <h4>Часть 5. "Обработка потокового видео"</h4>
+
+<h4>Часть 6. "Разработка собственного приложения"</h4>
