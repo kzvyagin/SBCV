@@ -14,7 +14,7 @@
 Команды для распаковки образов:
 
 ```
-7z x mysuper.iso.zx
+7z x mysuper.iso.7z
 zx --decompress mysuper.iso.zx
 ```
 Команды для прошивки:
@@ -94,16 +94,88 @@ sync
 </ul>
 
 Итого плата отлично запускается, все работает. 
-Использую OS OrangePI5_ubuntu_jammy_desctop_xfce_linux_5.10.160.7z
+насал использовать OS OrangePI5_ubuntu_jammy_desctop_xfce_linux_5.10.160.7z
+но перешел на ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5.img.xz v1.31
 
 <h4>Часть 2. "Подготовка инструментов"</h4>
 
-- проверка наличия драйвера для видеокарты 
-- проверка наличия npu библиотек
-- установка vscode 
-- установка инструментов 
+<h5>1) проверка наличия драйвера для видеокарты </h5>
+проверяем на наличие драйверов в системе 
+```
+dpkg -l | grep mali-g610
+```
+<details close>
+  <summary>Вывод</summary>
+  
+ ![check-mali-installed](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/check-mali-installed.png)  
+
+</details>
+
+проверяем версию установленного драйвера 
+```
+apt-cache show mali-g610-firmware
+```
+ 
+<details close>
+  <summary>Вывод</summary>
+  
+ ![mali-g610-firmware](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/mali-g610-firmware.png)  
+
+</details>
+
+ <h5>2) проверка наличия NPU библиотек</h5>
+ Выполняем команду 
+
+ ```
+ find /usr/lib -name *librknn*
+ ```
+и у меня в системе "ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5" их нет. А в системе "OrangePI5_ubuntu_jammy_desctop_xfce_linux_5.10" они есть, но они почему-то не подошли, мне пришлось их заново собирать.
+
+поэтому используем надежный и проверенный способ, установку и сборку из репозитория. Для этих целей я скачал следующий репозиторий:
+
+```
+git clone --recurse-submodules -j8 https://github.com/rockchip-linux/rknpu2.git
+```
+
+после выкачивания выглядит все так, что библиотека librknn поставляется сразу в виде blob, см директорию:
+```
+rknpu2/runtime/RK3588/Linux/librknn_api/aarch64
+```
+посмотри информацию об библиотеке librknn
+```
+ readelf  -nh librknnrt.so
+```
+<details close>
+  <summary>Вывод</summary>
+
+ ![librknn_readelf](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/librknn_readelf.png)  
+</details>
+
+посмотрим ее зависимости:
+```
+ ldd  librknnrt.so
+```
+
+
+<details close>
+  <summary>Вывод</summary>
+
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/librknn_ldd.png)  
+</details>
+
+тут век ок, битых ссылок нет.
+
+<h5>3) установка vscode <h/5>
+установка vs code прошла без особых проблем. заходим на официальный сайт, скачиваем сборку aarch64 и устанавливаем ее через dpkg -i или aptitude install.
+
+<h5> 4)установка инструментов </h5>
+```
+apt-get install cmake clang gcc g++ gdb git docker mc
+``` 
 
 <h4>Часть 3. "Сборка и запуск примеров rknn2"</h4>
+
+
 
 <h4>Часть 4. "Сборка и запуск примера Neural Network Use Cases"</h4>
 
