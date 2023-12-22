@@ -78,12 +78,20 @@ sync
   
 УРА ! Препятствия запуска платы пройдены !
 
+
 <li> <a href="">Armbian</a></li>
 
 На заметку:
 <ul>
   <li>все образы имеют небольшой размер раздела ОС. для его расширения рекомендую воспользоваться программой gparted после заливки SD карты. GParted немного поругается, предложат что-то пофиксить в ФС (соглашаемся) и изменит размер на тот который вы хотите, я увеличил на все оставшиеся гигагбайты (примерно 50+) своей 64 гигабайтной sd кары. </li>
   <li>первый запуск и эксперименты лучше проводить на серверных образах  ОС, они меньше весят, а это значит что они быстрее заливаются на SD карту. Дополнительны бонус, они быстро грузятся и сразу отображают информацию о CPU и общей памяти на устройстве. </li>
+  <li>После выбора системы и первого запуска необходимо обновить систему .
+
+  sudo apt-get update
+
+  sudo apt-get upgrade
+
+   </li>
   <li> Ссылки на ОС:
     <ul>
       <li> <a href="https://www.armbian.com/orangepi-5/">Armbian</a></li>
@@ -167,6 +175,7 @@ rknpu2/runtime/RK3588/Linux/librknn_api/aarch64
 <details close>
   <summary>Вывод</summary>
 
+
  ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/librknn_ldd.png)  
 </details>
 
@@ -177,8 +186,35 @@ rknpu2/runtime/RK3588/Linux/librknn_api/aarch64
 
 <h5> 4)установка инструментов </h5>
 ```
-apt-get install cmake clang gcc g++ gdb git docker mc meld
-``` 
+apt-get install cmake clang gcc g++ gdb git docker mc meld  imagemagick pitivi  protobuf-compiler
+```
+
+Установка Gstreamer 
+
+
+<a href="https://linux.how2shout.com/installing-gstreamer-on-ubuntu-22-04-or-20-04-lts-linux/">Gstreamer</a>.
+
+
+```
+apt-get install  libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libgstreamer-plugins-bad1.0-dev gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools gstreamer1.0-x gstreamer1.0-alsa gstreamer1.0-gl gstreamer1.0-gtk3 gstreamer1.0-qt5 gstreamer1.0-pulseaudio
+```  
+
+Установка Qt
+```
+sudo apt install  qtcreator qtbase5-dev qt5-qmake qtdeclarative5-dev
+or
+sudo apt install qtcreator qt6-base, qt6-base-dev or qt6-tools-dev
+
+```
+
+
+Установка OpenCV 
+
+```
+ sudo apt install libopencv-dev python3-opencv
+```
+
+
 
 <h4>Часть 3. "Сборка и запуск примеров rknn2"</h4>
  Перейдем к самому интересному, к сборке и запуску готового примера использования NPU ускорителя. 
@@ -221,7 +257,67 @@ git clone --recurse-submodules -j8 https://github.com/rockchip-linux/rknpu2.git
 
 <h4>Часть 4. "Сборка и запуск примера Neural Network Use Cases"</h4>
 
+Скачиваем репозиторий.
+
+```
+git clone https://gitlab.com/omprussia/demos/NeuralNetworksUseCases.git
+```
+
+Этот пример для OS Aurora. Придется собирать программу по кускам. 
+Сборка NCNN
+Идем в директорию NCNN и собираем там библиоткеку .
+mkdir build 
+cd build 
+cmake ..
+тут надо убедиться что все зависимости удовлетворены.
+make -j8 
+устанавливаем в opt для того чтобы библиотека не смешалась с системными библиотеками.
+При этом для дальнейшей работы и сборки нам надо указывать корретный путь к h файлам и к библиотекам.
+
+
+```
+cmake --install . --prefix /opt/libs/
+```
 <h4>Часть 5. "Обработка потокового видео"</h4>
+
+посмотрим что нужно для запуска примера обработка видео 
+./rknn_yolov5_video_demo --help
+```
+./rknn_yolov5_video_demo --help
+
+Usage: ./rknn_yolov5_video_demo <rknn_model> <video_path> <video_type 264/265>
+```
+
+таким образом нужно иметь модель, она есть в директории model, само видео в определенном формате. В конвертации нам поможет vlc
+
+проверяем  формат видео 
+```
+file videorecorder_720p_HD.mp4
+videorecorder_720p_HD.mp4: ISO Media, MP4 v2 [ISO 14496-14]
+
+```
+он у меня не подходящий , нужно конвертировать в 264/265
+
+для этого устанавливаем ffmpeg , gstreamer ( см рецепт выше)),  vlc
+
+
+```
+sudo apt install ffmpeg vlc
+
+```
+
+конвертируем видео в h264
+
+```
+ffmpeg -i videorecorder_720p_HD.mp4 -an -vcodec libx264 -crf 23 outfile.h264
+```
+
+Проверяем при помощи file что у файла нужный формат . Устраиваем просмотр при помощи vlc что все корректно сконвертиловалось. 
+
+и видео не вопроизводиться vlc корректно и не лезет в обработку. 
+
+возможно нужно привести формат в 640*640 h264 ....
+ to be continued 
 
 <h4>Часть 6. "Разработка собственного приложения"</h4>
 
