@@ -116,9 +116,11 @@ sync
 
 <h5>1) проверка наличия драйвера для видеокарты </h5>
 проверяем на наличие драйверов в системе 
+
 ```
 dpkg -l | grep mali-g610
 ```
+
 <details close>
   <summary>Вывод</summary>
   
@@ -127,6 +129,7 @@ dpkg -l | grep mali-g610
 </details>
 
 проверяем версию установленного драйвера 
+
 ```
 apt-cache show mali-g610-firmware
 ```
@@ -144,6 +147,7 @@ apt-cache show mali-g610-firmware
  ```
  find /usr/lib -name *librknn*
  ```
+
 и у меня в системе "ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5" их нет. А в системе "OrangePI5_ubuntu_jammy_desctop_xfce_linux_5.10" они есть, но они почему-то не подошли, мне пришлось их заново собирать.
 
 поэтому используем надежный и проверенный способ, установку и сборку из репозитория. Для этих целей я скачал следующий репозиторий:
@@ -153,10 +157,12 @@ git clone --recurse-submodules -j8 https://github.com/rockchip-linux/rknpu2.git
 ```
 
 после выкачивания выглядит все так, что библиотека librknn поставляется сразу в виде blob, см директорию:
+
 ```
 rknpu2/runtime/RK3588/Linux/librknn_api/aarch64
 ```
 посмотри информацию об библиотеке librknn
+
 ```
  readelf  -nh librknnrt.so
 ```
@@ -167,6 +173,7 @@ rknpu2/runtime/RK3588/Linux/librknn_api/aarch64
 </details>
 
 посмотрим ее зависимости:
+
 ```
  ldd  librknnrt.so
 ```
@@ -185,6 +192,7 @@ rknpu2/runtime/RK3588/Linux/librknn_api/aarch64
 установка vs code прошла без особых проблем. заходим на официальный сайт, скачиваем сборку aarch64 и устанавливаем ее через dpkg -i или aptitude install.
 
 <h5> 4)установка инструментов </h5>
+
 ```
 apt-get install cmake clang gcc g++ gdb git docker mc meld  imagemagick pitivi  protobuf-compiler
 ```
@@ -192,7 +200,7 @@ apt-get install cmake clang gcc g++ gdb git docker mc meld  imagemagick pitivi  
 Установка Gstreamer 
 
 
-<a href="https://linux.how2shout.com/installing-gstreamer-on-ubuntu-22-04-or-20-04-lts-linux/">Gstreamer</a>.
+<a href="https://linux.how2shout.com/installing-gstreamer-on-ubuntu-22-04-or-20-04-lts-linux/">Gstreamer</a>
 
 
 ```
@@ -219,6 +227,7 @@ sudo apt install qtcreator qt6-base, qt6-base-dev or qt6-tools-dev
 <h4>Часть 3. "Сборка и запуск примеров rknn2"</h4>
  Перейдем к самому интересному, к сборке и запуску готового примера использования NPU ускорителя. 
 Если вы еще не скачали rknn репозиорий то повторим это 
+
 ```
 git clone --recurse-submodules -j8 https://github.com/rockchip-linux/rknpu2.git
 ```
@@ -237,6 +246,7 @@ git clone --recurse-submodules -j8 https://github.com/rockchip-linux/rknpu2.git
 Перейдем к запуску. 
 Из текущей директории переходи в новую папку install/rknn_yolov5_demo_Linux и там будет исполняемый файл, модель , и ,библиотека для NPU.
 Все предусмотрительно скопировано скриптом в одну папку, это удобно.
+
 <details close>
   <summary>Лог зпуска</summary>
 
@@ -266,9 +276,14 @@ git clone https://gitlab.com/omprussia/demos/NeuralNetworksUseCases.git
 Этот пример для OS Aurora. Придется собирать программу по кускам. 
 Сборка NCNN
 Идем в директорию NCNN и собираем там библиоткеку .
+
+```
 mkdir build 
 cd build 
 cmake ..
+```
+
+
 тут надо убедиться что все зависимости удовлетворены.
 make -j8 
 устанавливаем в opt для того чтобы библиотека не смешалась с системными библиотеками.
@@ -278,10 +293,12 @@ make -j8
 ```
 cmake --install . --prefix /opt/libs/
 ```
+
 <h4>Часть 5. "Обработка потокового видео"</h4>
 
 посмотрим что нужно для запуска примера обработка видео 
 ./rknn_yolov5_video_demo --help
+
 ```
 ./rknn_yolov5_video_demo --help
 
@@ -291,10 +308,10 @@ Usage: ./rknn_yolov5_video_demo <rknn_model> <video_path> <video_type 264/265>
 таким образом нужно иметь модель, она есть в директории model, само видео в определенном формате. В конвертации нам поможет vlc
 
 проверяем  формат видео 
-```
-file videorecorder_720p_HD.mp4
-videorecorder_720p_HD.mp4: ISO Media, MP4 v2 [ISO 14496-14]
 
+```
+mediainfo videorecorder_720p_HD.mp4
+ 
 ```
 он у меня не подходящий , нужно конвертировать в 264/265
 
@@ -307,6 +324,7 @@ sudo apt install ffmpeg vlc
 ```
 
 конвертируем видео в h264
+норамльный конвертер это тут  https://www.convertfiles.com/
 
 ```
 ffmpeg -i videorecorder_720p_HD.mp4 -an -vcodec libx264 -crf 23 outfile.h264
@@ -316,8 +334,53 @@ ffmpeg -i videorecorder_720p_HD.mp4 -an -vcodec libx264 -crf 23 outfile.h264
 
 и видео не вопроизводиться vlc корректно и не лезет в обработку. 
 
-возможно нужно привести формат в 640*640 h264 ....
- to be continued 
+возможно нужно привести формат в 640*640 h264 
+
+Для быстрого перевода видео в нужный формат и размер я не нашел ничего лучше и стабильнее чем воспользоваться двумя интернет сервисами, один для изменеия размера видео , второй для переврда в h264.
+
+для изменения размера использую этот ресурс 
+https://clideo.com/ru/resize-video
+
+для конвертации видео в h264 использую этот ресурс 
+https://www.zamzar.com/
+
+Правильно сконверитированный фал для скачивания и проверки:
+
+<details close>
+  <summary>Файл h264 640*320:</summary>
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/video_regiter_h264_640.264
+)  
+</details>
+
+
+
+После преобразований получился файл удовлетворящий входным парамтрам стандртного примера rknn.
+Запускаме его при помощи комадны 
+
+```
+  ./rknn_yolov5_video_demo model/RK3588/yolov5s-640-640.rknn mysupervideo.264 264
+```
+
+Вывод в консоль будет примерно следующем 
+
+<details close>
+  <summary>Вывод запуска yollo на видео</summary>
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/rknn_yollo5_video_demo_run_progress.png
+)  
+</details>
+
+Результат будет записан в эту-же папку в виде out.h264. Для его нормального проигрования конвертируем его обратно в mp4 или avi 
+
+<details close>
+  <summary>Результирующее видео с рапознаванием:</summary>
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/video_regiter_with_yollo5_processing.avi
+)  
+</details>
+
+Известные проблемы при запуске видео примера 
+
+1) Пример виснет, лог в консол повисает, хотя остальная ОС работатет - не правильный формат фала или размер или мало питания на плате.
+2) на вывод ползет что-то несурное заполняя весь вывод однообразными символами - неправильный формиат или размер видео 
 
 <h4>Часть 6. "Разработка собственного приложения"</h4>
 
