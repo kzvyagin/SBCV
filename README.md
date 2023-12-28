@@ -5,7 +5,7 @@
 
  Рад приветствовать тебя на своей страничке посвященной изучению Orange PI. Тут я изучаю платы Orange PI на предмет использования NPU, GPU, CPU для обработки изображений, компьютерного зрения и вычислительной фотографии. 
 
- На данный момент у меня есть плата [Orange PI5](https://github.com/kzvyagin/orange_pi_5/blob/main/OrangePi5/range_PI_5_Adventure.md). С нее и начнем.
+ На данный момент у меня есть плата [Orange PI5](https://github.com/kzvyagin/orange_pi_5/blob/main/OrangePi5/Orange_PI_5_Adventure.md). С нее и начнем.
 
 ## Структура репозитория
 
@@ -14,7 +14,7 @@
 	предоставляемых данным репозиторием.
 *	Директория **[OrangePi5](./OrangePi5)**
 	содержит описание запуска нейронный сетей на NPU OrangePI5 с RK3588 в виде живого рассказа.
-*	Директория **[OrangePi5/images](./OrangePi5/imges)**
+    *	Директория **[OrangePi5/images](./OrangePi5/imges)**
 	содержит ресурсы фотографий и видео используемых в описании OrangePi5.
 
 ## Условия использования
