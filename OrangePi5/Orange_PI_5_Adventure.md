@@ -1,5 +1,11 @@
 
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/kzvyagin/orange_pi_5">Orange PI 5 Adventure</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/kzvyagin">Konstantin Zvyagin</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"> <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
+
+
+
+
 <h4>Часть 1. "Загрузка"</h4>
+
 Все началось с желания исследовать тему компьютерного зрения в области встраиваемых плат типо raspberry еще в далеких 2010-х. Тогда появлялись платы с все большим количеством ядер и все большей частой процессора. Однако мощность их на практике желала оставлять лучшего. Каждая фото обрабатывалось с заметным лагом, а об обработке видео небыло и речи. Пока железа подходящего небыло, я разработал небольшой курс "Введение в  компьютерное зрение и машинное обучение" познакомиться с ним можно по <a href="https://github.com/kzvyagin/introduction_to_cv_and_ml">ссылке</a>.  
 Все изменись с появлением специализированных NPU предназначенных для нейронных сетей с помощью которых можно разрабатывать программы с использование компьютерного зрения, машинного обучения, вычислительной фотографии. Одной из интересных серий плат на данный момент это OrangePI, от OrangePI3 с процессором RK3568 и OrangePI5 с процессором RK3568. Оба они содержат NPU.
 И вот наступает конец 2023 его года и я решил себе сделать новогодний подарок, заказал на avito плату OrangePI5 с 16 ю гигабайтами оперативной памяти. Почему не Ali ? Просто потому что Avito доставило за 5 дней перед новым годом, а Ali обещали за 30 дней =).
@@ -31,7 +37,7 @@ ls -l /dev/sd* или ls -l /dev/mmcblk*
     /dev/mmcblk0p2
     /dev/mmcblk0p1
 ```
-выбираем из указнных устройств корневой раздел:
+выбираем из указанных устройств корневой раздел:
 ```
 /dev/mmcblk0 или /dev/sda 
 ```
@@ -53,7 +59,7 @@ sync
  <details close>
   <summary>Ошибка 1</summary>
 
-![ubuntu load error 1](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/ubuntu_error.png)  
+![ubuntu load error 1](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/ubuntu_error.png)  
 
 </details>
 
@@ -61,7 +67,7 @@ sync
  <details close>
   <summary>Ошибка 2</summary>
 
- ![armbian load error 1](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/armbian_error.png)  
+ ![armbian load error 1](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/armbian_error.png)  
 </details>
 
 Все без результатно. 
@@ -73,7 +79,7 @@ sync
 
 После я вернулся домой и залил образ серверной ubuntu на новую sd карту. Сразу заметил скорость заливки значительно возросла. Поставив SD карту в плату я увидел экран долгожданной загрузки ОС :
 
- ![first boot](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/first_orange_pi5_boot.png)  
+ ![first boot](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/first_orange_pi5_boot.png)  
 
   
 УРА ! Препятствия запуска платы пройдены !
@@ -109,7 +115,7 @@ sync
 </ul>
 
 Итого плата отлично запускается, все работает. 
-насал использовать OS OrangePI5_ubuntu_jammy_desctop_xfce_linux_5.10.160.7z
+Начал использовать OS OrangePI5_ubuntu_jammy_desctop_xfce_linux_5.10.160.7z
 но перешел на ubuntu-22.04.3-preinstalled-desktop-arm64-orangepi-5.img.xz v1.31, он по новее и браузер более новый, меньше падений, хотя есть.
 
 <h4>Часть 2. "Подготовка инструментов"</h4>
@@ -124,7 +130,7 @@ dpkg -l | grep mali-g610
 <details close>
   <summary>Вывод</summary>
   
- ![check-mali-installed](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/check-mali-installed.png)  
+ ![check-mali-installed](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/check-mali-installed.png)  
 
 </details>
 
@@ -137,7 +143,7 @@ apt-cache show mali-g610-firmware
 <details close>
   <summary>Вывод</summary>
   
- ![mali-g610-firmware](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/mali-g610-firmware.png)  
+ ![mali-g610-firmware](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/mali-g610-firmware.png)  
 
 </details>
 
@@ -169,7 +175,7 @@ rknpu2/runtime/RK3588/Linux/librknn_api/aarch64
 <details close>
   <summary>Вывод</summary>
 
- ![librknn_readelf](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/librknn_readelf.png)  
+ ![librknn_readelf](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/librknn_readelf.png)  
 </details>
 
 посмотрим ее зависимости:
@@ -183,7 +189,7 @@ rknpu2/runtime/RK3588/Linux/librknn_api/aarch64
   <summary>Вывод</summary>
 
 
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/librknn_ldd.png)  
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/librknn_ldd.png)  
 </details>
 
 тут век ок, битых ссылок нет.
@@ -226,7 +232,7 @@ sudo apt install qtcreator qt6-base, qt6-base-dev or qt6-tools-dev
 
 <h4>Часть 3. "Сборка и запуск примеров rknn2"</h4>
  Перейдем к самому интересному, к сборке и запуску готового примера использования NPU ускорителя. 
-Если вы еще не скачали rknn репозиорий то повторим это 
+Если вы еще не скачали rknn репозиторий то повторим это 
 
 ```
 git clone --recurse-submodules -j8 https://github.com/rockchip-linux/rknpu2.git
@@ -238,7 +244,7 @@ git clone --recurse-submodules -j8 https://github.com/rockchip-linux/rknpu2.git
 <details close>
   <summary>Лог сборки</summary>
 
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/rknn_yollo5_demo_build_progress.png)  
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/rknn_yollo5_demo_build_progress.png)  
 </details>
 
 
@@ -248,22 +254,22 @@ git clone --recurse-submodules -j8 https://github.com/rockchip-linux/rknpu2.git
 Все предусмотрительно скопировано скриптом в одну папку, это удобно.
 
 <details close>
-  <summary>Лог зпуска</summary>
+  <summary>Лог запуска</summary>
 
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/run_rknn_yollo5_demo.png)  
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/run_rknn_yollo5_demo.png)  
 </details>
 
-Следует отметить что скрип копирует библиотеку librknnrt.so в папку lib. И если спросить ldd у rknn_yolov5_demo то ссылка будет корректно указвать на lib/librknnrt.so.  
+Следует отметить что скрип копирует библиотеку librknnrt.so в папку lib. И если спросить ldd у rknn_yolov5_demo то ссылка будет корректно указывать на lib/librknnrt.so.  
 
 Ниже приведу результат обработки изображения.
 
 <details close>
-  <summary>Результат распознования автобуса</summary>
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/out_bus.png)  
+  <summary>Результат распознавания автобуса</summary>
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/out_bus.png)  
 </details>
 
-Ура! пример запускается. Время на обработку 1 ого изображения 640x640 при помощи inference yollo5 запущенного на NPU RK3588 примерно 20 милисекунд. Немного округлим в большую сторону и получи 21 милисекунд. Посчитаем общее количество кадров которое может обработать NPU c имеющимся inference yollo5. 
-1000/21 = 47.6 кадров/сек без учета подготовки, копирования, прочих накладных расходов. Выглядит очень интересно при таком большом разрешении inference yollo5 640х640. Есть гипотеза что можно организовать потоковую обработку видео 24 кадра в секунду. Проверим это предположение в слудующих разделах нашего приключения. 
+Ура! пример запускается. Время на обработку 1 ого изображения 640x640 при помощи inference yollo5 запущенного на NPU RK3588 примерно 20 миллисекунд. Немного округлим в большую сторону и получи 21 миллисекунд. Посчитаем общее количество кадров которое может обработать NPU c имеющимся inference yollo5. 
+1000/21 = 47.6 кадров/сек без учета подготовки, копирования, прочих накладных расходов. Выглядит очень интересно при таком большом разрешении inference yollo5 640х640. Есть гипотеза что можно организовать потоковую обработку видео 24 кадра в секунду. Проверим это предположение в следующих разделах нашего приключения. 
 
 <h4>Часть 4. "Сборка и запуск примера Neural Network Use Cases"</h4>
 
@@ -275,7 +281,7 @@ git clone https://gitlab.com/omprussia/demos/NeuralNetworksUseCases.git
 
 Этот пример для OS Aurora. Придется собирать программу по кускам. 
 Сборка NCNN
-Идем в директорию NCNN и собираем там библиоткеку .
+Идем в директорию NCNN и собираем там библиотеку .
 
 ```
 mkdir build 
@@ -287,7 +293,7 @@ cmake ..
 тут надо убедиться что все зависимости удовлетворены.
 make -j8 
 устанавливаем в opt для того чтобы библиотека не смешалась с системными библиотеками.
-При этом для дальнейшей работы и сборки нам надо указывать корретный путь к h файлам и к библиотекам.
+При этом для дальнейшей работы и сборки нам надо указывать корректный путь к h файлам и к библиотекам.
 
 
 ```
@@ -327,19 +333,18 @@ sudo apt install ffmpeg vlc
 ```
 
 конвертируем видео в h264
-норамльный конвертер это тут  https://www.convertfiles.com/
-
+загуглил я первый попавшийся рецепт 
 ```
 ffmpeg -i videorecorder_720p_HD.mp4 -an -vcodec libx264 -crf 23 outfile.h264
 ```
 
-Проверяем при помощи file что у файла нужный формат . Устраиваем просмотр при помощи vlc что все корректно сконвертиловалось. 
+Проверяем при помощи mediainfo что у файла нужный формат. Устраиваем просмотр при помощи vlc что все корректно было конвертировано. 
 
-и видео не вопроизводиться vlc корректно и не лезет в обработку. 
+и видео не воспроизводится vlc корректно и не лезет в обработку. 
 
 возможно нужно привести формат в 640*640 h264 
 
-Для быстрого перевода видео в нужный формат и размер я не нашел ничего лучше и стабильнее чем воспользоваться двумя интернет сервисами, один для изменеия размера видео , второй для переврда в h264.
+Для быстрого перевода видео в нужный формат и размер я не нашел ничего лучше и стабильнее чем воспользоваться двумя интернет сервисами, один для изменения размера видео , второй для перевода в h264.
 
 для изменения размера использую этот ресурс 
 https://clideo.com/ru/resize-video
@@ -348,18 +353,18 @@ https://clideo.com/ru/resize-video
 
 https://www.digitalofficepro.com/convert/mp4-to-h-264
 
-Правильно сконверитированный фал для скачивания и проверки:
+Правильно конвертированный файл для скачивания и проверки:
 
 <details close>
   <summary>Файл h264 640*320:</summary>
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/video_recorder_h264_640.264
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/video_recorder_h264_640.264
 )  
 </details>
 
 
 
-После преобразований получился файл удовлетворящий входным парамтрам стандртного примера rknn.
-Запускаме его при помощи комадны 
+После преобразований получился файл удовлетворяющий входным параметрам стандартного примера rknn.
+Запускаем его при помощи команды 
 
 ```
   ./rknn_yolov5_video_demo model/RK3588/yolov5s-640-640.rknn mysupervideo.264 264
@@ -370,34 +375,37 @@ https://www.digitalofficepro.com/convert/mp4-to-h-264
 <details close>
   <summary>Вывод запуска yollo на видео</summary>
 
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/rknn_yollo5_video_demo_run_progress.png
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/rknn_yollo5_video_demo_run_progress.png
 )  
 </details>
 
-Результат будет записан в эту-же папку в виде out.h264. Для его нормального проигрования конвертируем его обратно в mp4 или avi 
+Результат будет записан в эту-же папку в виде out.h264. Для его нормального проигрывания конвертируем его обратно в mp4 или avi 
 
 <details close>
-  <summary>Результирующее видео с рапознаванием:</summary>
+  <summary>Результирующее видео с распознаванием:</summary>
 
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/video_recorder_h264_640_out.264
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/video_recorder_h264_640_out.264
 )  
 </details>
 
 Известные проблемы при запуске видео примера 
 
-1) Пример виснет, лог в консол повисает, хотя остальная ОС работатет - не правильный формат фала или размер или мало питания на плате.
-2) на вывод ползет что-то несурное заполняя весь вывод однообразными символами - неправильный формиат или размер видео 
-3) для проверки формата видео файла используте программу mediainfo. Ниже вывод правильно сконвертированного файла:
+1) Пример виснет, лог в консоль повисает, хотя остальная ОС работает - не правильный формат фала или размер.
+2) на вывод ползет что-то несурадное, заполняя весь вывод однообразными символами - неправильный формиат или размер видео 
+3) для проверки формата видео файла используйте программу mediainfo. Ниже вывод правильно конвертированного файла:
 
 <details close>
   <summary>Вывод mediainfo на правильно подготовленном файлом h246:</summary>
 
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/mediainfo_output_reference.png
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/mediainfo_output_reference.png
 )  
 </details>
 
+4)  нашел способ конвертации через ffmpeg 
+```
+ ffmpeg -i video.mp4 -vf scale=640:320 -vcodec libx264 video2.mp4
+```
 
 <h4>Часть 6. "Разработка собственного приложения"</h4>
 
 
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/kzvyagin/orange_pi_5">Orange PI 5 Adventure</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/kzvyagin">Konstantin Zvyagin</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"> <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
