@@ -294,7 +294,10 @@ make -j8
 cmake --install . --prefix /opt/libs/
 ```
 
-<h4>Часть 5. "Обработка потокового видео"</h4>
+to be continued ...
+
+
+<h4>Часть 5. "Обработка видео записи"</h4>
 
 посмотрим что нужно для запуска примера обработка видео 
 ./rknn_yolov5_video_demo --help
@@ -342,13 +345,14 @@ ffmpeg -i videorecorder_720p_HD.mp4 -an -vcodec libx264 -crf 23 outfile.h264
 https://clideo.com/ru/resize-video
 
 для конвертации видео в h264 использую этот ресурс 
-https://www.zamzar.com/
+
+https://www.digitalofficepro.com/convert/mp4-to-h-264
 
 Правильно сконверитированный фал для скачивания и проверки:
 
 <details close>
   <summary>Файл h264 640*320:</summary>
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/video_regiter_h264_640.264
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/video_recorder_h264_640.264
 )  
 </details>
 
@@ -373,7 +377,7 @@ https://www.zamzar.com/
 
 <details close>
   <summary>Результирующее видео с рапознаванием:</summary>
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/video_regiter_with_yollo5_processing.avi
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/video_recorder_h264_640_out.264
 )  
 </details>
 
