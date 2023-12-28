@@ -369,6 +369,7 @@ https://www.digitalofficepro.com/convert/mp4-to-h-264
 
 <details close>
   <summary>Вывод запуска yollo на видео</summary>
+
  ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/rknn_yollo5_video_demo_run_progress.png
 )  
 </details>
@@ -377,6 +378,7 @@ https://www.digitalofficepro.com/convert/mp4-to-h-264
 
 <details close>
   <summary>Результирующее видео с рапознаванием:</summary>
+
  ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/video_recorder_h264_640_out.264
 )  
 </details>
@@ -385,6 +387,15 @@ https://www.digitalofficepro.com/convert/mp4-to-h-264
 
 1) Пример виснет, лог в консол повисает, хотя остальная ОС работатет - не правильный формат фала или размер или мало питания на плате.
 2) на вывод ползет что-то несурное заполняя весь вывод однообразными символами - неправильный формиат или размер видео 
+3) для проверки формата видео файла используте программу mediainfo. Ниже вывод правильно сконвертированного файла:
+
+<details close>
+  <summary>Вывод mediainfo на правильно подготовленном файлом h246:</summary>
+
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/images/mediainfo_output_reference.png
+)  
+</details>
+
 
 <h4>Часть 6. "Разработка собственного приложения"</h4>
 
