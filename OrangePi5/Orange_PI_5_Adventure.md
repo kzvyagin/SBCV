@@ -271,6 +271,7 @@ git clone --recurse-submodules -j8 https://github.com/rockchip-linux/rknpu2.git
 
 <details close>
   <summary>Результат распознавания автобуса</summary>
+  
  ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/out_bus.png)  
 </details>
 
