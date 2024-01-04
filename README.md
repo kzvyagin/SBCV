@@ -7,6 +7,9 @@
 
  На данный момент у меня есть плата [Orange PI5](https://github.com/kzvyagin/SBCV/blob/main/OrangePi5/Orange_PI_5_Adventure.md). С нее и начнем.
 
+Для справки:
+
+ресурс для разметки своих датасетов для дальнейшего обучения yollo5 https://www.makesense.ai/. Он помогает разметить в нужном формате. 
 ## Структура репозитория
 
 *	Файл **[AUTHORS.md](AUTHORS.md)** содержит список людей,
