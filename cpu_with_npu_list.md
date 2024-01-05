@@ -1,10 +1,10 @@
 | CPU NAME  | CPU cores | NPU TFLPOS | NPU github / SDK | Boards / Articles    |
 | :--:      |   :--:    |    :--:  |  :--------  | :-------- |
-| RK3588/RK3588s    |   8 (4+4) |      4     |   https://github.com/rockchip-linux/rknpu2          | OrangePI 5   |
+| RK3588/RK3588s    |  Quad core Cortex-A76 <br>and<br> Quad core Cortex-A55 configuration DynamIQ |      4     |   https://github.com/rockchip-linux/rknpu2          | OrangePI 5   |
 | RK3566/RK3568 |      Quad-core Arm Cortex-A55 processor @ 1.6 GHz     | 0.8        |   https://github.com/rockchip-linux/rknpu2          |       |
 | RV1103/RV1106 |      Cortex A7@1.2GHz + RISC-V     |    0.5     |    https://github.com/rockchip-linux/rknpu2               |       |
 | RK3562 |      4 x Cortex-A53 2000 МГц     |       1  |       https://github.com/rockchip-linux/rknpu2            |       |
-| Amlogic A311D  |           |    5     |     https://github.com/opencv/opencv/wiki/TIM-VX-Backend-For-Running-OpenCV-On-NPU   <br> https://forum.khadas.com/t/npu-documentation-and-tools/5214      | Khadas vim3(https://www.khadas.com/vim3) <br> Banana Pi BPI-M2S SoC Amlogic A311D и S922X     |
+| Amlogic A311D  |      Quad core ARM Cortex-A73 and dual core ARM Cortex-A53 CPU      |    5     |     https://github.com/opencv/opencv/wiki/TIM-VX-Backend-For-Running-OpenCV-On-NPU   <br> https://forum.khadas.com/t/npu-documentation-and-tools/5214      | Khadas vim3(https://www.khadas.com/vim3) <br> Banana Pi BPI-M2S SoC Amlogic A311D и S922X     |
 | VS680 |    Quad-core Arm Cortex-A73       | 7.9       |             |       |
 | Hailo-8 AI Accelerator |  -----         | 26       |     https://github.com/hailo-ai        | EAI-Hailo-8 AI Acceleration Module  PCIE Expansion        |
 | Amlogic S905D3 |      Quad-core Cortex-A53      | 1.2        |             | Khadas VIM3L     |
