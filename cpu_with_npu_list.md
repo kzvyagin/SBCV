@@ -1,0 +1,17 @@
+| CPU NAME  | CPU cores | NPU TFLPOS | NPU github / SDK | Boards / Articles    |
+| :--:      |   :--:    |    :--:  |  :--------  | :-------- |
+| RK3588/RK3588s    |  Quad core Cortex-A76 <br>and<br> Quad core Cortex-A55 configuration DynamIQ |      4     |   https://github.com/rockchip-linux/rknpu2          | OrangePI 5   |
+| RK3566/RK3568 |      Quad-core Arm Cortex-A55 processor @ 1.6 GHz     | 0.8        |   https://github.com/rockchip-linux/rknpu2          |       |
+| RV1103/RV1106 |      Cortex A7@1.2GHz + RISC-V     |    0.5     |    https://github.com/rockchip-linux/rknpu2               |       |
+| RK3562 |      4 x Cortex-A53 2000 МГц     |       1  |       https://github.com/rockchip-linux/rknpu2            |       |
+| Amlogic A311D  |      Quad core ARM Cortex-A73 and dual core ARM Cortex-A53 CPU      |    5     |     https://github.com/opencv/opencv/wiki/TIM-VX-Backend-For-Running-OpenCV-On-NPU   <br> https://forum.khadas.com/t/npu-documentation-and-tools/5214      | Khadas vim3(https://www.khadas.com/vim3) <br> Banana Pi BPI-M2S SoC Amlogic A311D и S922X     |
+| VS680 |    Quad-core Arm Cortex-A73       | 7.9       |             |       |
+| Hailo-8 AI Accelerator |  -----         | 26       |     https://github.com/hailo-ai        | EAI-Hailo-8 AI Acceleration Module  PCIE Expansion        |
+| Amlogic S905D3 |      Quad-core Cortex-A53      | 1.2        |             | Khadas VIM3L     |
+| Amlogic S922D |          Quad-core ARM Cortex-A73+Dual-Core ARM Cortex-A53-based SoC   | 5       |             | Khadas      |
+| MediaTek Genio 1200 |     Octa-core processor with four Cortex-A78 cores @ up to 2.2 GHz, four Cortex-A55 cores      | 4.8       |             |       |
+| AXERA AX620A 4K AI SoC  |      4 * Cortex-A7     | 14 (INT4) <br> 3.2 (INT8)       |       https://wiki.sipeed.com/hardware/en/maixIII/ax-pi/dev_prepare.html      | MAIX-III AXera-Pi <br> Sipeed M3AXPI <br> https://cnx-software.ru/2022/11/09/axera-ax620a-4k-ai-soc-obespechivaet-do-144-tops-dlya-prilozhenij-kompyuternogo-zreniya/     |
+| Sophgo SG2380 |     16-core SiFive P670 (RV64GCVH) с 64-bit RISC-V @ up to 2,5 ГГц с RISC-V Vector v1.0, Vector Crypto      | 20       |       https://github.com/sophgo      | https://cnx-software.ru/2023/10/22/sophgo-sg2380-16-yadernyj-proczessor-sifive-p670-risc-v-s-taktovoj-chastotoj-25-ggcz-i-ai-uskoritelem-20-tops/     |
+| SOPHGO SOPHON BM1684X Cortex-A53 AI SoC  |    Octa core Arm Cortex-A53  up to  2,3 GHz       | up to  32TOPS (INT8) , 16 TFLOPS (FP16/BF16), 2 TFLOPS (FP32)       | https://github.com/sophgo <br> https://sophon.ai/product/introduce/bm1684x.html          | [Firefly Core-1684XJD4](https://aliexpress.ru/item/1005005955504919.html?sku_id=12000035015414681&spm=a2g2w.productlist.search_results.4.31536071YU6y4O)    https://cnx-software.ru/2023/04/02/kompyuter-sophon-bm1684-bm1684x-edge-ai-obespechivaet-do-32-tops-dekodiruet-do-32-video-full-hd-odnovremenno/  |
+| SOPHGO SOPHON BM1684 Cortex-A53 AI SoC  |    Octa core Arm Cortex-A53  up to  2,3 GHz       |  17,6 TOPS (INT8) , 2,2 TOPS (FP32)        |  https://github.com/sophgo <br>  https://sophon.ai/product/introduce/bm1684.html          |  [Core-1684JD4 BM1684 firefly](https://aliexpress.ru/item/1005004821362248.html?sku_id=12000030614939176&spm=a2g2w.productlist.search_results.0.5be53318HGl7zh)   <br> [EVM1684 development board ](https://aliexpress.ru/item/1005004827576682.html?sku_id=12000030636750157&spm=a2g2w.productlist.search_results.4.5be53318HGl7zh)   |
+| c1 |    c2       | c3       |   c4          | c5      |

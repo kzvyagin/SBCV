@@ -1,5 +1,5 @@
 
-<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/kzvyagin/orange_pi_5">Orange PI 5 Adventure</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/kzvyagin">Konstantin Zvyagin</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"> <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/kzvyagin/SBCV"> Single-board computer vision</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://github.com/kzvyagin">Konstantin Zvyagin</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"> <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"></a></p>
 
 
 
@@ -59,7 +59,7 @@ sync
  <details close>
   <summary>Ошибка 1</summary>
 
-![ubuntu load error 1](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/ubuntu_error.png)  
+![ubuntu load error 1](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/ubuntu_error.png)  
 
 </details>
 
@@ -67,7 +67,7 @@ sync
  <details close>
   <summary>Ошибка 2</summary>
 
- ![armbian load error 1](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/armbian_error.png)  
+ ![armbian load error 1](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/armbian_error.png)  
 </details>
 
 Все без результатно. 
@@ -79,7 +79,7 @@ sync
 
 После я вернулся домой и залил образ серверной ubuntu на новую sd карту. Сразу заметил скорость заливки значительно возросла. Поставив SD карту в плату я увидел экран долгожданной загрузки ОС :
 
- ![first boot](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/first_orange_pi5_boot.png)  
+ ![first boot](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/first_orange_pi5_boot.png)  
 
   
 УРА ! Препятствия запуска платы пройдены !
@@ -136,7 +136,7 @@ dpkg -l | grep mali-g610
 <details close>
   <summary>Вывод</summary>
   
- ![check-mali-installed](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/check-mali-installed.png)  
+ ![check-mali-installed](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/check-mali-installed.png)  
 
 </details>
 
@@ -149,7 +149,7 @@ apt-cache show mali-g610-firmware
 <details close>
   <summary>Вывод</summary>
   
- ![mali-g610-firmware](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/mali-g610-firmware.png)  
+ ![mali-g610-firmware](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/mali-g610-firmware.png)  
 
 </details>
 
@@ -181,7 +181,7 @@ rknpu2/runtime/RK3588/Linux/librknn_api/aarch64
 <details close>
   <summary>Вывод</summary>
 
- ![librknn_readelf](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/librknn_readelf.png)  
+ ![librknn_readelf](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/librknn_readelf.png)  
 </details>
 
 посмотрим ее зависимости:
@@ -195,7 +195,7 @@ rknpu2/runtime/RK3588/Linux/librknn_api/aarch64
   <summary>Вывод</summary>
 
 
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/librknn_ldd.png)  
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/librknn_ldd.png)  
 </details>
 
 тут век ок, битых ссылок нет.
@@ -250,7 +250,7 @@ git clone --recurse-submodules -j8 https://github.com/rockchip-linux/rknpu2.git
 <details close>
   <summary>Лог сборки</summary>
 
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/rknn_yollo5_demo_build_progress.png)  
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/rknn_yollo5_demo_build_progress.png)  
 </details>
 
 
@@ -262,7 +262,7 @@ git clone --recurse-submodules -j8 https://github.com/rockchip-linux/rknpu2.git
 <details close>
   <summary>Лог запуска</summary>
 
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/run_rknn_yollo5_demo.png)  
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/run_rknn_yollo5_demo.png)  
 </details>
 
 Следует отметить что скрип копирует библиотеку librknnrt.so в папку lib. И если спросить ldd у rknn_yolov5_demo то ссылка будет корректно указывать на lib/librknnrt.so.  
@@ -271,7 +271,8 @@ git clone --recurse-submodules -j8 https://github.com/rockchip-linux/rknpu2.git
 
 <details close>
   <summary>Результат распознавания автобуса</summary>
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/out_bus.png)  
+  
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/out_bus.png)  
 </details>
 
 Ура! пример запускается. Время на обработку 1 ого изображения 640x640 при помощи inference yollo5 запущенного на NPU RK3588 примерно 20 миллисекунд. Немного округлим в большую сторону и получи 21 миллисекунд. Посчитаем общее количество кадров которое может обработать NPU c имеющимся inference yollo5. 
@@ -369,7 +370,7 @@ https://www.digitalofficepro.com/convert/mp4-to-h-264
 
 <details close>
   <summary>Файл h264 640*320:</summary>
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/video_recorder_h264_640.264
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/video_recorder_h264_640.264
 )  
 </details>
 
@@ -387,7 +388,7 @@ https://www.digitalofficepro.com/convert/mp4-to-h-264
 <details close>
   <summary>Вывод запуска yollo на видео</summary>
 
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/rknn_yollo5_video_demo_run_progress.png
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/rknn_yollo5_video_demo_run_progress.png
 )  
 </details>
 
@@ -396,7 +397,7 @@ https://www.digitalofficepro.com/convert/mp4-to-h-264
 <details close>
   <summary>Результирующее видео с распознаванием:</summary>
 
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/video_recorder_h264_640_out.264
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/video_recorder_h264_640_out.264
 )  
 </details>
 
@@ -409,7 +410,7 @@ https://www.digitalofficepro.com/convert/mp4-to-h-264
 <details close>
   <summary>Вывод mediainfo на правильно подготовленном файлом h246:</summary>
 
- ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/orange_pi_5/main/OrangePi5/images/mediainfo_output_reference.png
+ ![librknn_ldd](https://raw.githubusercontent.com/kzvyagin/SBCV/main/OrangePi5/images/mediainfo_output_reference.png
 )  
 </details>
 
