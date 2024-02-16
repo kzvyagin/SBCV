@@ -11,6 +11,8 @@
  <li><a href="https://www.luckfox.com/EN-Luckfox-Pico-Plus">LuckFox Pico Plus</a></li>
  <li><a href="https://wiki.banana-pi.org/Banana_Pi_BPI-M6">Banana_Pi_BPI-M6</a></li>
 
+ <li><a href="https://fr.aliexpress.com/item/1005006523447229.html?src=google&aff_fcid=11cf131a044a4eaf85ea90a03e2d5548-1708104165377-09117-UneMJZVf&aff_fsk=UneMJZVf&aff_platform=aaf&sk=UneMJZVf&aff_trace_key=11cf131a044a4eaf85ea90a03e2d5548-1708104165377-09117-UneMJZVf&terminal_id=983b885605c34c72b79d3fa9709db6ce&afSmartRedirect=y&gatewayAdapt=glo2fra">LicheeRV Nano SG2002</a></li>
+
 
 
 </ul>
