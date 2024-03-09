@@ -15,6 +15,8 @@
 
 
 
+ <li><a href="https://cnx-software.ru/2024/03/07/kaki-pi-eto-renesas-rz-v2h-ai-sbc-v-stile-raspberry-pi-s-chetyrmya-razemami-dlya-kamer-i-interfejsom-pcie-3-0/">Kaki Pi  Renesas RZ/V2H</a></li>
+
 </ul>
 
 
