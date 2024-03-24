@@ -60,6 +60,7 @@
     <td class="tg-0pky"> <a href="https://github.com/rockchip-linux/rknpu2"> rknpu2 Github</a></td>
     <td class="tg-0pky"></td>
   </tr>
+
    <tr>
     <td class="tg-0pky" colspan="6"> <b>Amlogic family</b></td>
   </tr>
@@ -100,7 +101,7 @@
     <td class="tg-0pky"></td>
   </tr>
  <tr>
-    <td class="tg-0pky" colspan="6"> <b>PCI-E Acceleration Modules </b></td>
+    <td class="tg-0pky" colspan="6"> <b>M2 AI Acceleration Modules (PCI-E) </b></td>
   </tr>
   <tr>
     <td class="tg-0pky">Hailo-8 AI Accelerator</td>
@@ -109,6 +110,32 @@
     <td class="tg-0pky">-----</td>
     <td class="tg-0pky"> <a href="https://github.com/hailo-ai">Github Hailo AI</a>       </td>
     <td class="tg-0pky"> <a href="https://hailo.ai/products/ai-accelerators/hailo-8-m2-ai-acceleration-module/#hailo8-m2-overview">Hailo AI official site</a> </td>
+  </tr>
+    <tr>
+    <td name="name" class="tg-0pky">M2AI-2242-520</td>
+    <td name="cpu"  class="tg-0pky">----</td>
+    <td name="npu"  class="tg-0pky">0.35 TOPS </td>
+    <td name="gpu"  class="tg-0pky">----</td>
+    <td name="info" class="tg-0pky"><a href="https://github.com/kneron">Kneron GitHub</a></td>
+    <td name="dev-b"class="tg-0pky"> <a href="https://www.aaeon.com/ru/p/ai-modules-m2ai-2242-520"> PCI-E board</a></td>
+  </tr>
+
+ <tr>
+    <td name="name" class="tg-0pky">M2AI-2280-720</td>
+    <td name="cpu"  class="tg-0pky">----</td>
+    <td name="npu"  class="tg-0pky">1.4 TOP/s x2 </td>
+    <td name="gpu"  class="tg-0pky">----</td>
+    <td name="info" class="tg-0pky"><a href="https://github.com/kneron">Kneron GitHub</a></td>
+    <td name="dev-b"class="tg-0pky"> <a href="https://www.aaeon.com/ru/p/ai-edge-computing-solutions-m2ai-2280-720"> PCI-E board</a></td>
+  </tr>
+
+  <tr>
+    <td name="name" class="tg-0pky">RP-RK1808</td>
+    <td name="cpu"  class="tg-0pky">Dual-core ARM Cortex-A35 CPU</td>
+    <td name="npu"  class="tg-0pky">3.0 TOPs</td>
+    <td name="gpu"  class="tg-0pky">VPU encode/decode H264 JPEG</td>
+    <td name="info" class="tg-0pky"><a href="https://cnx-software.ru/2019/05/02/vypushheny-spetsifikatsii-rockchip-rk1808-trm-shemy-i-linux-sdk/">CNX review</a> <br>  <a href="https://github.com/rockchip-toybrick/slave_mobilenet_ssd">Github AI stick</a> </td> 
+    <td name="dev-b"class="tg-0pky"> <a href="https://www.cnx-software.com/2022/07/27/mini-pcie-module-rockchip-rk1808k-soc-3-0-tops-npu/"> M2 module </a></td>
   </tr>
 
    <tr>
@@ -243,6 +270,43 @@
     <td class="tg-0pky"></td>
   </tr>
 
+ <tr>
+    <td class="tg-0pky" colspan="6"> <b>Google Edge Coral series</b></td>
+  </tr>
+  <tr>
+
+  <tr>
+    <td name="name" class="tg-0pky">Dev-board <br> NXP i.MX 8M SoC</td>
+    <td name="cpu"  class="tg-0pky">Quad Cortex-A53, Cortex-M4F</td>
+    <td name="npu"  class="tg-0pky">4 TOPS</td>
+    <td name="gpu"  class="tg-0pky">Integrated GC7000 Lite Graphics</td>
+    <td name="info" class="tg-0pky"> <a href="https://github.com/google-coral">Coral GitHub</a></td>
+    <td name="dev-b"class="tg-0pky"><a href="https://coral.ai/products/dev-board/"> Dev board</a> <br> <a href="https://coral.ai/docs/dev-board/datasheet/">Datasheet</a></td>
+  </tr>
+    <tr>
+    <td name="name" class="tg-0pky">USB Accelerator</td>
+    <td name="cpu"  class="tg-0pky">----</td>
+    <td name="npu"  class="tg-0pky">4 TOPS </td>
+    <td name="gpu"  class="tg-0pky">----</td>
+    <td name="info" class="tg-0pky"><a href="https://github.com/google-coral">Coral GitHub</a></td>
+    <td name="dev-b"class="tg-0pky"> <a href="https://coral.ai/products/accelerator/">Usb accelerator</a></td>
+  </tr>
+    <tr>
+    <td name="name" class="tg-0pky">Dev Board Mini <br> MediaTek 8167s SoC </td>
+    <td name="cpu"  class="tg-0pky">Quad-core Arm Cortex-A35</td>
+    <td name="npu"  class="tg-0pky">4 TOPS</td>
+    <td name="gpu"  class="tg-0pky">IMG PowerVR GE8300</td>
+    <td name="info" class="tg-0pky"><a href="https://github.com/google-coral">Coral GitHub</a></td>
+    <td name="dev-b"class="tg-0pky"><a href="https://coral.ai/products/dev-board-mini/">Dev Board Mini</a></td>
+  </tr>
+    <tr>
+    <td name="name" class="tg-0pky">Dev Board Micro <br> NXP i.MX RT1176  </td>
+    <td name="cpu"  class="tg-0pky">Cortex-M7 and Cortex-M4</td>
+    <td name="npu"  class="tg-0pky">4 TOPS </td>
+    <td name="gpu"  class="tg-0pky">----</td>
+    <td name="info" class="tg-0pky"><a href="https://github.com/google-coral">Coral GitHub</a></td></td>
+    <td name="dev-b"class="tg-0pky"> <a  href="https://coral.ai/products/dev-board-micro/">Dev Board Micro</a></td>
+  </tr>
   <tr>
     <td class="tg-0pky" colspan="6"> <b>Other</b></td>
   </tr>
