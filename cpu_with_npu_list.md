@@ -61,6 +61,14 @@
     <td class="tg-0pky"></td>
   </tr>
 
+ <tr>
+    <td name="name" class="tg-0pky">RK1808</td>
+    <td name="cpu"  class="tg-0pky">Dual-core ARM Cortex-A35 CPU</td>
+    <td name="npu"  class="tg-0pky">3.0 TOPs</td>
+    <td name="gpu"  class="tg-0pky">VPU encode/decode H264 JPEG</td>
+    <td name="info" class="tg-0pky"><a href="https://cnx-software.ru/2019/05/02/vypushheny-spetsifikatsii-rockchip-rk1808-trm-shemy-i-linux-sdk/">CNX review</a> <br>  <a href="https://github.com/rockchip-toybrick/slave_mobilenet_ssd">Github AI stick</a> </td> 
+    <td name="dev-b"class="tg-0pky"> <a href="https://en.t-firefly.com/product/coreboard/core_1808_jd4.html"> Dev board </a></td>
+  </tr>
    <tr>
     <td class="tg-0pky" colspan="6"> <b>Amlogic family</b></td>
   </tr>
