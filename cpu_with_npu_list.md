@@ -26,7 +26,7 @@
 
 <tbody>
  <tr>
-    <td class="tg-0pky" colspan="5"> <b>RockChip family</b></td>
+    <td class="tg-0pky" colspan="6"> <b>RockChip family</b></td>
   </tr>
   <tr>
     <td class="tg-0pky">RK3588/RK3588s </td>
@@ -41,7 +41,7 @@
     <td class="tg-0pky"> Quad-core Arm Cortex-A55 processor @ 1.6 GHz </td>
     <td class="tg-0pky">0.8</td>
     <td class="tg-0pky">ARM Mali-G52 MP2</td>
-    <td class="tg-0pky"><a href="https://github.com/rockchip-linux/rknpu2"> rknpu2 Github</a>    </td>
+    <td class="tg-0pky"><a href="https://github.com/rockchip-linux/rknpu2"> rknpu2 Github</a> </td>
     <td class="tg-0pky"></td>
   </tr>
   <tr>
@@ -57,11 +57,11 @@
     <td class="tg-0pky">4 x Cortex-A53 2000 МГц</td>
     <td class="tg-0pky">1</td>
     <td class="tg-0pky">Arm Mali-G52-2EE</td>
-    <td class="tg-0pky"><a href="https://github.com/rockchip-linux/rknpu2"> rknpu2 Github</td>
+    <td class="tg-0pky"> <a href="https://github.com/rockchip-linux/rknpu2"> rknpu2 Github</a></td>
     <td class="tg-0pky"></td>
   </tr>
    <tr>
-    <td class="tg-0pky" colspan="5"> <b>Amlogic family</b></td>
+    <td class="tg-0pky" colspan="6"> <b>Amlogic family</b></td>
   </tr>
 
   <tr>
@@ -76,7 +76,7 @@
     <td class="tg-0pky">Amlogic S905D3</td>
     <td class="tg-0pky">Quad-core Cortex-A53</td>
     <td class="tg-0pky">1.2 </td>
-    <td class="tg-0pky">● ARM G31 MP2 GPU</td>
+    <td class="tg-0pky">ARM G31 MP2 GPU</td>
     <td class="tg-0pky"></td>
     <td class="tg-0pky"> Khadas VIM3L</td>
   </tr>
@@ -88,9 +88,8 @@
     <td class="tg-0pky"></td>
     <td class="tg-0pky">Khadas</td>
   </tr>
-
   <tr>
-    <td class="tg-0pky" colspan="5"> <b>Synaptic family</b></td>
+    <td class="tg-0pky" colspan="6"> <b>Synaptic family</b></td>
   </tr>
   <tr>
     <td class="tg-0pky">VS680</td>
@@ -101,7 +100,7 @@
     <td class="tg-0pky"></td>
   </tr>
  <tr>
-    <td class="tg-0pky" colspan="5"> <b>PCI-E Acceleration Modules </b></td>
+    <td class="tg-0pky" colspan="6"> <b>PCI-E Acceleration Modules </b></td>
   </tr>
   <tr>
     <td class="tg-0pky">Hailo-8 AI Accelerator</td>
@@ -113,7 +112,7 @@
   </tr>
 
    <tr>
-    <td class="tg-0pky" colspan="5"> <b>MediaTek</b></td>
+    <td class="tg-0pky" colspan="6"> <b>MediaTek</b></td>
   </tr>
   <tr>
     <td class="tg-0pky">MediaTek Genio 1200</td>
@@ -124,7 +123,7 @@
     <td class="tg-0pky"></td>
   </tr>
     <tr>
-    <td class="tg-0pky" colspan="5"> <b>Sophgo family</b></td>
+    <td class="tg-0pky" colspan="6"> <b>Sophgo family</b></td>
   </tr>
   <tr>
     <td class="tg-0pky">Sophgo SG2380</td>
@@ -158,7 +157,7 @@
     <td class="tg-0pky"><a href="https://github.com/sipeed/LicheeRV-Nano-Build/tree/v4.1.0-licheervnano">LicheeRV GitHub</a></td>
     <td class="tg-0pky"> <a href="https://habr.com/ru/companies/ru_mts/articles/793880/">Habr article</a> <br> <a href="https://milkv.io/chips/sg2000">Milkv sg2000</a> <br><a href="https://milkv.io/chips/sg2002">Milkv sg2002</a> </td>
   <tr>
-    <td class="tg-0pky" colspan="5"> <b>Allwinner family</b></td>
+    <td class="tg-0pky" colspan="6"> <b>Allwinner family</b></td>
   </tr>
   </tr>
     <tr>
@@ -197,7 +196,7 @@
   </tr>
 
  <tr>
-    <td class="tg-0pky" colspan="5"> <b>Texas Instruments</b></td>
+    <td class="tg-0pky" colspan="6"> <b>Texas Instruments</b></td>
   </tr>
         <tr>
     <td class="tg-0pky">AM62A3 <br> AM62A3-Q1 <br> AM62A7 <br> AM62A7-Q1</td>
@@ -225,7 +224,7 @@
     <td class="tg-0pky"></td>
   </tr>
     <tr>
-    <td class="tg-0pky" colspan="5"> <b>Arm family</b></td>
+    <td class="tg-0pky" colspan="6"> <b>Arm family</b></td>
   </tr>
     <tr>
     <td name="name" class="tg-0pky">Arm Ethos-N78 <br> Ethos-N77 <br>Ethos-N57 <br>Ethos-N37 </td>
@@ -245,7 +244,7 @@
   </tr>
 
   <tr>
-    <td class="tg-0pky" colspan="5"> <b>Other</b></td>
+    <td class="tg-0pky" colspan="6"> <b>Other</b></td>
   </tr>
   <tr>
     <td class="tg-0pky">AXERA AX620A 4K AI SoC</td>
