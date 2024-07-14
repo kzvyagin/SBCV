@@ -359,6 +359,31 @@
     <td class="tg-0pky"></td>
   </tr>
   <tr>
+    <td name="name" class="tg-0pky">Huawei Ascend AI SoC</td>
+    <td name="cpu"  class="tg-0pky">4-core 64-bit processor + AI processor<br>
+1 DaVinciV300 AI core at 1.224GHz<br>
+4 TAISHANV200M processor cores at 1.6GHz</td>
+    <td name="npu"  class="tg-0pky">20 TOPS</td>
+    <td name="gpu"  class="tg-0pky">Integrated graphics processor</td>
+    <td name="info" class="tg-0pky"></td>
+    <td name="dev-b"class="tg-0pky">
+    <a href="http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-AIpro(20t).html" > Orange-Pi-AIpro(20t)</a>
+    </td>
+  </tr>
+
+ <tr>
+    <td name="name" class="tg-0pky">EDWIN EIC7700X </td>
+    <td name="cpu"  class="tg-0pky">4x SiFive Performance P550 RV64GC RISC-V cores @ 1.4GHz (up to 1.8GHz) with Cortex-A75-class performance</td>
+    <td name="npu"  class="tg-0pky">19,95 TOPS</td>
+    <td name="gpu"  class="tg-0pky">Multimedia Decoder/Encoder
+HEVC (H.265) and AVC (H.264) and JPEG supported</td>
+    <td name="info" class="tg-0pky"><a href="https://www.cnx-software.com/2024/06/19/eswin-eic7700x-quad-core-risc-v-soc-embeds-19-95-tops-npu-for-edge-ai-vision-applications/" > CNX Review</a>
+    </td>
+    <td name="dev-b"class="tg-0pky"></td>
+  </tr>
+
+
+ <tr>
     <td name="name" class="tg-0pky"></td>
     <td name="cpu"  class="tg-0pky"></td>
     <td name="npu"  class="tg-0pky"></td>
